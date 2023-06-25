@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 
 // !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Triet Tran Personal Portfolio',
-  siteName: 'Triet Tran Personal Portfolio',
+  title: 'Triet Tran',
+  siteName: 'Triet Tran',
   description:
     'A personal portfolio website built with Next.js, Tailwind CSS, TypeScript, and deployed on Vercel.',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
