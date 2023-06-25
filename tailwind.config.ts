@@ -7,6 +7,9 @@ export default {
     extend: {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
+        calibre: ['Calibre', ...defaultTheme.fontFamily.sans],
+        sfMono: ['SF Mono', ...defaultTheme.fontFamily.sans],
+        // sf-mono: ['SF Mono', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
