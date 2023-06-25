@@ -8,7 +8,7 @@ export default {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
         calibre: ['Calibre', ...defaultTheme.fontFamily.sans],
-        sfMono: ['SF Mono', ...defaultTheme.fontFamily.sans],
+        'sf-mono': ['SF Mono', ...defaultTheme.fontFamily.sans],
         // sf-mono: ['SF Mono', ...defaultTheme.fontFamily.sans],
       },
       colors: {
@@ -27,6 +27,7 @@ export default {
           950: 'rgb(var(--tw-color-primary-950) / <alpha-value>)',
         },
         dark: '#222222',
+        'dark-navy': '#020c1b',
       },
       keyframes: {
         flicker: {
@@ -52,6 +53,15 @@ export default {
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
+      },
+      transitionTimingFunction: {
+        'cubic-bezier': 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+      },
+      transitionDuration: {
+        '250': '0.25s',
+      },
+      transitionProperty: {
+        custom: 'all',
       },
     },
   },

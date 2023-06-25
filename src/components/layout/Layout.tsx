@@ -1,9 +1,22 @@
 import * as React from 'react';
 
+import useExternalLinks from '@/hooks/useExternalLinks';
+
+import Loader from '@/components/common/Loader';
 interface LayoutProps {
   children: React.ReactNode;
 }
 export default function Layout({ children }: LayoutProps) {
-  // Put Header or Footer Here
-  return <>{children}</>;
+  const { isLoading, isHome, setIsLoading } = useExternalLinks();
+  return (
+    <>
+      {isLoading && isHome ? (
+        <Loader finishLoading={() => setIsLoading(false)} />
+      ) : (
+        <div>{children}</div>
+      )}
+      {/* <div>{children}</div> */}
+      {/* <Loader finishLoading={() => setIsLoading(false)} /> */}
+    </>
+  );
 }
