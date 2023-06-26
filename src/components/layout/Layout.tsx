@@ -9,14 +9,12 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const { isLoading, isHome, setIsLoading } = useExternalLinks();
   return (
-    <div className='bg-navy h-[100vh]'>
+    <div id='root'>
       {isLoading && isHome ? (
         <Loader finishLoading={() => setIsLoading(false)} />
       ) : (
-        <div>{children}</div>
+        <div className='flex min-h-[100vh] flex-col'>{children}</div>
       )}
-      {/* <div>{children}</div> */}
-      {/* <Loader finishLoading={() => setIsLoading(false)} /> */}
     </div>
   );
 }

@@ -20,7 +20,7 @@ export default function HomePage() {
     <Layout>
       <Seo templateTitle='Home' />
       <main>
-        <h1>This is homepage</h1>
+        <h1 className='font-sf-mono text-white'>This is homepage</h1>
       </main>
     </Layout>
   );
