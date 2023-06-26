@@ -9,7 +9,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const { isLoading, isHome, setIsLoading } = useExternalLinks();
   return (
-    <>
+    <div className='bg-navy h-[100vh]'>
       {isLoading && isHome ? (
         <Loader finishLoading={() => setIsLoading(false)} />
       ) : (
@@ -17,6 +17,6 @@ export default function Layout({ children }: LayoutProps) {
       )}
       {/* <div>{children}</div> */}
       {/* <Loader finishLoading={() => setIsLoading(false)} /> */}
-    </>
+    </div>
   );
 }

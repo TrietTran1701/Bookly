@@ -63,7 +63,7 @@ const Loader: NextPage<LoaderProps> = ({ finishLoading }) => {
         } logo-wrapper primary-transition`}
       >
         <IconLoader />
-        <h1 className='font-sf-mono text-xl font-medium text-white'>
+        <h1 id='logo' className='font-sf-mono text-xl font-medium text-white'>
           Loading...
         </h1>
       </div>
