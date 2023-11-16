@@ -45,7 +45,7 @@ export default {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
         calibre: ['Calibre', ...defaultTheme.fontFamily.sans],
-        'sf-mono': ['SF Mono', ...defaultTheme.fontFamily.sans],
+        mono: ['SF Mono', ...defaultTheme.fontFamily.sans],
         // sf-mono: ['SF Mono', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
@@ -138,6 +138,9 @@ export default {
       },
       transitionProperty: {
         custom: 'all',
+      },
+      transition: {
+        transition: 'var(--transition)',
       },
     },
   },
