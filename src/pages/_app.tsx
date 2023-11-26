@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 
+// import '@/styles/_app.css';
 import '@/styles/globals.css';
-import '@/styles/_app.css';
 
 import TransitionEffect from '@/components/common/TransitionEffect';
 import Layout from '@/components/layout/Layout';
