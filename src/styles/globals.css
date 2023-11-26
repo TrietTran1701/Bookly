@@ -45,6 +45,55 @@
   transition: custom duration-250 ease-cubic-bezier;
 }
 
+/* Class to adjust sticky nav bar */
+.sticky-nav {
+  position: sticky;
+  z-index: 10;
+  top: -1px;
+  backdrop-filter: blur(5px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+  border-bottom-color: transparent;
+}
+
+.remove-sticky {
+  position: unset;
+}
+
+.sticky-nav-full {
+  @apply border-none;
+}
+
+.sticky-nav-full .nav {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+nav {
+  flex-wrap: wrap;
+  line-height: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .sticky-nav-full {
+    @apply max-w-full border-none;
+  }
+  .header-name {
+    display: block;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+  }
+  .sticky-nav-full .header-name {
+    opacity: 1;
+    @apply text-gray-600 dark:text-gray-300;
+  }
+}
+
+/* @supports not (backdrop-filter: none) {
+  .sticky-nav-full {
+    backdrop-filter: none;
+    @apply dark:bg-night bg-opacity-90 dark:bg-opacity-90;
+  }
+} */
+
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),

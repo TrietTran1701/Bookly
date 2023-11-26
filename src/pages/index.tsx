@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 /**
@@ -16,12 +15,21 @@ import Seo from '@/components/Seo';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const h1Tags = [];
+
+  for (let i = 0; i < 50; i++) {
+    h1Tags.push(
+      <h1 key={i} className='font-sf-mono text-white'>
+        This is homepage
+      </h1>
+    );
+  }
   return (
-    <Layout>
+    <>
       <Seo templateTitle='Home' />
       <main>
-        <h1 className='font-sf-mono text-white'>This is homepage</h1>
+        <h1 className='font-sf-mono text-white'>{h1Tags}</h1>
       </main>
-    </Layout>
+    </>
   );
 }
