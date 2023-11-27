@@ -14,10 +14,12 @@ export default function Layout({ children }: LayoutProps) {
       {isLoading && isHome ? (
         <Loader finishLoading={() => setIsLoading(false)} />
       ) : (
-        <div className='flex min-h-[100vh] flex-col px-10'>
+        <>
           <Header navBarTitle={null} fullWidth={false} />
-          <div id='content'>{children}</div>
-        </div>
+          <div className='flex min-h-[100vh] flex-col px-10'>
+            <div id='content'>{children}</div>
+          </div>
+        </>
       )}
     </div>
   );

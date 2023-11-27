@@ -1,7 +1,13 @@
 import BLOG from 'blog.config.js';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import {
+  MutableRefObject,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { SmallButton } from '@/components/buttons/Button';
 
@@ -12,8 +18,8 @@ const StyledHeader = ({
   fullWidth,
 }: {
   children: ReactNode;
-  sentinalRef: any;
-  navRef: any;
+  sentinalRef: MutableRefObject<HTMLDivElement | null>;
+  navRef: MutableRefObject<HTMLElement | null>;
   fullWidth: boolean | null;
 }) => (
   <>
@@ -104,7 +110,7 @@ export const Header = ({ navBarTitle, fullWidth }: IHeaderProps) => {
   const navRef = useRef(null);
   const sentinalRef = useRef<HTMLDivElement>(null);
 
-  const handler = ([entry]: any) => {
+  const handler = ([entry]: IntersectionObserverEntry[]) => {
     if (navRef && navRef.current && useSticky) {
       if (!entry.isIntersecting && entry !== undefined) {
         (navRef.current as HTMLElement)?.classList.add('sticky-nav-full');
@@ -131,12 +137,19 @@ export const Header = ({ navBarTitle, fullWidth }: IHeaderProps) => {
         setShowTitle(false);
       }
     });
-    const obvserver = new window.IntersectionObserver(handler, observerOptions);
-    if (sentinalRef.current)
-      obvserver.observe(sentinalRef.current as unknown as HTMLElement);
+
+    const observer = new IntersectionObserver(handler, observerOptions);
+
+    const currentSentinalRef = sentinalRef.current; // Create a variable
+
+    if (currentSentinalRef) {
+      observer.observe(currentSentinalRef);
+    }
+
     return () => {
-      if (sentinalRef.current)
-        obvserver.unobserve(sentinalRef.current as unknown as HTMLElement);
+      if (currentSentinalRef) {
+        observer.unobserve(currentSentinalRef);
+      }
     };
     // Don't touch this, I have no idea how it works XD
     // return () => {

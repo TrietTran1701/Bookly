@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 
 const variants = {
   in: {
@@ -25,7 +26,7 @@ const variants = {
  * Read the blog post here:
  * https://letsbuildui.dev/articles/animated-page-transitions-in-nextjs
  */
-const TransitionEffect = ({ children }: any) => {
+const TransitionEffect = ({ children }: { children: ReactNode }) => {
   const { asPath } = useRouter();
 
   return (
