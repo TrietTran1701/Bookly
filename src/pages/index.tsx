@@ -17,7 +17,7 @@ import Seo from '@/components/Seo';
 export default function HomePage() {
   const h1Tags = [];
 
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 50; i++) {
     h1Tags.push(
       <h1 key={i} className='font-sf-mono'>
         This is homepage

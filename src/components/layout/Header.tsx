@@ -56,11 +56,6 @@ const StyledLogo = ({ children }: { children: ReactNode }) => (
   </motion.div>
 );
 
-const StyledNav = ({ children }: { children: ReactNode }) => (
-  <ol className='m-0 flex list-none items-center justify-between p-0 font-mono'>
-    {children}
-  </ol>
-);
 const NavItem = ({
   href,
   children,
@@ -89,10 +84,10 @@ const NavItem = ({
 
 export const Nav = () => {
   const navItems = [
-    { href: '#faculty', label: 'Faculty' },
-    { href: '#institution', label: 'Institution' },
-    { href: '#venue', label: 'Venue' },
-    { href: '#concept', label: 'Concept' },
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#collective', label: 'Collective' },
+    { href: '#topselling', label: 'Top selling' },
   ];
   const { lg } = useScreenSize();
   const [openSidenav, setOpenSidenav] = useState(false);
@@ -112,7 +107,7 @@ export const Nav = () => {
 
   return (
     <>
-      <StyledNav>
+      <ol className='m-0 flex list-none items-center justify-between p-0 font-mono'>
         {lg ? (
           <>
             {navItems.map((item, index) => (
@@ -121,7 +116,7 @@ export const Nav = () => {
               </NavItem>
             ))}
             <div className='ml-4'>
-              <SmallButton>Resume</SmallButton>
+              <SmallButton>Login</SmallButton>
             </div>
           </>
         ) : (
@@ -147,7 +142,7 @@ export const Nav = () => {
               <motion.nav
                 initial={false}
                 animate={openSidenav ? 'open' : 'closed'}
-                className='absolute bottom-0 right-0 top-0 w-[300px] bg-red-500'
+                className='bg-light-navy absolute bottom-0 right-0 top-0 w-[300px]'
               >
                 <motion.div
                   className='absolute left-0 top-0 h-full w-full'
@@ -178,7 +173,7 @@ export const Nav = () => {
           </>
         )}
         {lg ? null : <HamburgerIcon open={openSidenav} setOpen={setOpen} />}
-      </StyledNav>
+      </ol>
     </>
   );
 };
@@ -261,12 +256,10 @@ export const Header = ({ navBarTitle, fullWidth }: IHeaderProps) => {
           </>
         ) : (
           <p className='ml-2.5 hidden font-mono text-sm font-medium md:block'>
-            {showTitle ? (
-              <>
+            {showTitle && (
+              <div className='flex items-center gap-2'>
                 <span className='text-slate'>{BLOG.description}</span>
-              </>
-            ) : (
-              <></>
+              </div>
             )}
           </p>
         )}

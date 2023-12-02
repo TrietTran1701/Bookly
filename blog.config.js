@@ -1,10 +1,10 @@
 const BLOG = {
-  title: 'Academic Online',
+  title: 'Bookly',
   author: 'TrietTran',
   email: 'anhtriet172@gmail.com',
   link: '',
   newsletter: 'Triet Tran Dev',
-  description: 'exploring AI-built virtual academic world',
+  description: 'expand knowledge by reading book',
   lang: 'en-US',
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif',
