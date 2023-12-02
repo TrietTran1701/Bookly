@@ -17,9 +17,9 @@ import Seo from '@/components/Seo';
 export default function HomePage() {
   const h1Tags = [];
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 30; i++) {
     h1Tags.push(
-      <h1 key={i} className='font-sf-mono text-white'>
+      <h1 key={i} className='font-sf-mono'>
         This is homepage
       </h1>
     );
@@ -28,7 +28,7 @@ export default function HomePage() {
     <>
       <Seo templateTitle='Home' />
       <main>
-        <h1 className='font-sf-mono text-white'>{h1Tags}</h1>
+        <h1 className='font-sf-mono'>{h1Tags}</h1>
       </main>
     </>
   );
