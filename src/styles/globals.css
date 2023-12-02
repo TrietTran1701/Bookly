@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import url('_fonts.css');
 @import url('_variables.css');
-
+@import './componentStyles/HamburgerIcon.css';
 /*==== Common =======*/
 
 html {
@@ -45,6 +45,26 @@ html {
 :focus-visible {
   outline: 2px dashed var(--green);
   outline-offset: 3px;
+}
+
+html {
+  --scrollbarBG: #ffffff00;
+  --thumbBG: #b8b8b8;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+html::-webkit-scrollbar {
+  width: 5px;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+html::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
 }
 
 body {

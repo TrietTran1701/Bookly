@@ -1,10 +1,10 @@
 const BLOG = {
-  title: 'Triet Tran',
+  title: 'Academic Online',
   author: 'TrietTran',
   email: 'anhtriet172@gmail.com',
   link: '',
   newsletter: 'Triet Tran Dev',
-  description: 'just a guy with small eyes',
+  description: 'exploring AI-built virtual academic world',
   lang: 'en-US',
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif',
