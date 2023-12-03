@@ -14,6 +14,7 @@ import { useScreenSize } from '@/hooks/useScreenSize';
 import { SmallButton } from '@/components/buttons/Button';
 import Logo from '@/components/common/Logo';
 import HamburgerIcon from '@/components/layout/widgets/HamburgerIcon';
+import SearchBar from '@/components/layout/widgets/SearchBar';
 
 import {
   con_variants,
@@ -37,7 +38,7 @@ const StyledHeader = ({
     <div className='observer-element h-0 md:h-0' ref={sentinalRef}></div>
     <header
       className={`sticky-nav m-auto flex h-0 w-full flex-row items-center justify-between bg-opacity-60 py-8 lg:my-6 ${
-        !fullWidth ? 'max-w-[950px] px-4' : 'px-4 lg:px-24'
+        !fullWidth ? 'max-w-[1050px] px-4' : 'px-4 lg:px-24'
       }`}
       id='sticky-nav'
       ref={navRef}
@@ -115,7 +116,8 @@ export const Nav = () => {
                 {item.label}
               </NavItem>
             ))}
-            <div className='ml-4'>
+            <div className='ml-5 flex items-center gap-4'>
+              <SearchBar />
               <SmallButton>Login</SmallButton>
             </div>
           </>
@@ -154,16 +156,9 @@ export const Nav = () => {
                   >
                     {navItems.map((item, index) => (
                       <motion.li variants={li_variants} key={index}>
-                        <Link
-                          passHref
-                          href={item.href}
-                          scroll={false}
-                          className='mb-2 flex list-none items-center gap-2.5 rounded-lg border-2 border-gray-200/0 px-3.5 py-2 font-medium hover:border-gray-200 hover:bg-gray-200 hover:duration-200 dark:hover:border-gray-700 dark:hover:bg-gray-700'
-                        >
-                          <NavItem key={index} href={item.href} index={index}>
-                            {item.label}
-                          </NavItem>
-                        </Link>
+                        <NavItem href={item.href} index={index}>
+                          {item.label}
+                        </NavItem>
                       </motion.li>
                     ))}
                   </motion.ul>
@@ -172,7 +167,12 @@ export const Nav = () => {
             </div>
           </>
         )}
-        {lg ? null : <HamburgerIcon open={openSidenav} setOpen={setOpen} />}
+        {lg ? null : (
+          <>
+            <SearchBar />
+            <HamburgerIcon open={openSidenav} setOpen={setOpen} />
+          </>
+        )}
       </ol>
     </>
   );

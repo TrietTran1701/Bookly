@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+
+import Hero from '@/views/homepage/components/Hero';
+
+const StyledMainContainer = ({ children }: { children: ReactNode }) => (
+  <main className='mx-0 min-h-screen w-full max-w-screen-xl md:mx-auto md:px-[150px]'>
+    {children}
+  </main>
+);
 
 export default function Homepage() {
-  return <div>index</div>;
+  return (
+    <StyledMainContainer>
+      <Hero />
+    </StyledMainContainer>
+  );
 }

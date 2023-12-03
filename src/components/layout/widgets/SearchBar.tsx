@@ -19,7 +19,7 @@ const SearchBar = () => {
 
   return (
     <div
-      className='bg-day dark:bg-night pointer-events-auto relative mx-2 flex items-center'
+      className='bg-day dark:bg-night pointer-events-auto relative flex items-center'
       onClick={onOpen}
     >
       <button

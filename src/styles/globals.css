@@ -223,13 +223,23 @@ nav {
 }
 
 /* Button */
-.smallButton:hover,
-.smallButton:focus-visible {
+.custom-btn:hover,
+.custom-btn:focus-visible {
   outline: none;
   box-shadow: 3px 3px 0 0 var(--green);
   transform: translate(-4px, -4px);
 }
 
-.smallButton:after {
+.custom-btn:after {
   display: none !important;
+}
+
+.big-heading {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 80px);
+}
+
+.medium-heading {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 60px);
 }
