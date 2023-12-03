@@ -168,10 +168,10 @@ export const Nav = () => {
           </>
         )}
         {lg ? null : (
-          <>
+          <div className='flex items-center gap-2'>
             <SearchBar />
             <HamburgerIcon open={openSidenav} setOpen={setOpen} />
-          </>
+          </div>
         )}
       </ol>
     </>
