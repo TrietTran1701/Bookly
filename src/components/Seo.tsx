@@ -3,10 +3,9 @@ import { useRouter } from 'next/router';
 
 // !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Academic Online',
-  siteName: 'Academic Online',
-  description:
-    'To help people learn various academic topics by exploring a data-driven, AI-built virtual academic world.',
+  title: 'Bookly',
+  siteName: 'Bookly',
+  description: 'expading knowledge by reading books',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: '',
   type: 'website',

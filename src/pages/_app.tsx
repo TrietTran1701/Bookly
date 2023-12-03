@@ -1,25 +1,27 @@
 import { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // import '@/styles/_app.css';
 import '@/styles/globals.css';
 
 import TransitionEffect from '@/components/common/TransitionEffect';
+import FixedComponents from '@/components/fixedComponents';
 import Layout from '@/components/layout/Layout';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-// import '@/styles/colors.css';
 
-/**
- * !STARTERCONF info
- * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
- */
-
+import store, { persistor } from '@/store';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <TransitionEffect>
-        <Component {...pageProps} />
-      </TransitionEffect>
-    </Layout>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Layout>
+          <TransitionEffect>
+            <FixedComponents />
+            <Component {...pageProps} />
+          </TransitionEffect>
+        </Layout>
+      </PersistGate>
+    </Provider>
   );
 }
 

@@ -218,7 +218,7 @@ export const Header = ({ navBarTitle, fullWidth }: IHeaderProps) => {
 
     const observer = new IntersectionObserver(handler, observerOptions);
 
-    const currentSentinalRef = sentinalRef.current; // Create a variable
+    const currentSentinalRef = sentinalRef.current;
 
     if (currentSentinalRef) {
       observer.observe(currentSentinalRef);
@@ -239,29 +239,20 @@ export const Header = ({ navBarTitle, fullWidth }: IHeaderProps) => {
     >
       <StyledLogo>
         <Logo />
-        {navBarTitle ? (
+        {showTitle && (
           <>
-            <div
-              className={`ml-2.5 h-6 w-[1.5px] rotate-12 ${
-                !showTitle ? 'hidden' : 'hidden xl:block'
-              }`}
-            ></div>
-            <p
-              className={`ml-2.5 mt-1 font-medium ${
-                !showTitle ? 'hidden' : 'hidden xl:block'
-              }`}
-            >
-              {navBarTitle}
-            </p>
-          </>
-        ) : (
-          <p className='ml-2.5 hidden font-mono text-sm font-medium md:block'>
-            {showTitle && (
-              <div className='flex items-center gap-2'>
-                <span className='text-slate'>{BLOG.description}</span>
-              </div>
+            <div className='ml-2.5 hidden h-6 w-[1.5px] rotate-12 xl:block'></div>
+            {navBarTitle && (
+              <p className='ml-2.5 mt-1 hidden font-medium xl:block'>
+                {navBarTitle}
+              </p>
             )}
-          </p>
+            {!navBarTitle && (
+              <p className='ml-2.5 hidden font-mono text-sm font-medium md:block'>
+                <span className='text-slate'>{BLOG.description}</span>
+              </p>
+            )}
+          </>
         )}
       </StyledLogo>
       <Nav />
