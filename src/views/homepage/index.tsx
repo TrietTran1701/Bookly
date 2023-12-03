@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 
+import Featured from '@/views/homepage/components/Featured';
 import Hero from '@/views/homepage/components/Hero';
 
 const StyledMainContainer = ({ children }: { children: ReactNode }) => (
@@ -12,6 +13,7 @@ export default function Homepage() {
   return (
     <StyledMainContainer>
       <Hero />
+      <Featured />
     </StyledMainContainer>
   );
 }

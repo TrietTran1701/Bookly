@@ -20,6 +20,7 @@ export default {
         'green-tint': 'var(--green-tint)',
         pink: 'var(--pink)',
         blue: 'var(--blue)',
+        grey: 'var(--grey)',
       },
       fontSize: {
         xxs: 'var(--fz-xxs)',
