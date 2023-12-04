@@ -14,12 +14,12 @@ export function useGetAllBooks(isbns: string) {
   return { status, data, isLoading };
 }
 
-export function useGetNewsDetails(isbn: string, size: string) {
+export function useGetBookCover(isbn: string, size: string) {
   return useQuery({
     queryKey: ['books', isbn, size],
     queryFn: () => {
       return bookService.getBooksCover({ isbn, size });
     },
-    // refetchOnWindowFocus: false,
+    refetchOnWindowFocus: false,
   });
 }

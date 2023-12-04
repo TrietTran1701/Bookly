@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 
+import { BigButton } from '@/components/buttons/Button';
 import SmallCard from '@/components/cards/SmallCard';
 import LoadingWithText from '@/components/common/LoadingWithText';
 
@@ -20,11 +21,11 @@ const StyledCardsContainer = ({ children }: { children: ReactNode }) => {
 
 export default function Popular() {
   const isbns =
-    'ISBN:0201558025,ISBN:9781506287751,ISBN:9780486691152,ISBN:9781416626992,ISBN:9780744082685, ISBN:9781975644031';
+    'ISBN:9780545791434,ISBN:9780545790352,ISBN:9781847941848,ISBN:9780060935467,ISBN:9781975369774, ISBN:9780316452465';
 
   const { data, isLoading } = useGetAllBooks(isbns);
   const booksData: Books = data || {}; // Ensure data is an object
-  const pseudoValue = `01.`;
+  const pseudoValue = `02.`;
 
   return (
     <StyledAboutSection>
@@ -32,7 +33,7 @@ export default function Popular() {
         before-dynamic-value={pseudoValue}
         className='numbered-heading  before:content-[attr(before-dynamic-value)]'
       >
-        Featured Books
+        Popular Books
       </h2>
       {isLoading ? (
         <>
@@ -45,6 +46,11 @@ export default function Popular() {
           ))}
         </StyledCardsContainer>
       )}
+      <div className='flex w-full justify-center'>
+        <BigButton>
+          <p className='font-mono text-[14px]'>View all books</p>
+        </BigButton>
+      </div>
     </StyledAboutSection>
   );
 }

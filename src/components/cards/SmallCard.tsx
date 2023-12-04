@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 
+import { useGetBookCover } from '@/queries/books';
+
 import { BookData } from '@/types/Book';
+import { Author } from '@/types/Book';
 const StyledCard = ({ children }: { children: ReactNode }) => {
   return (
     <div className='bg-grey group mb-[40px] overflow-hidden rounded-[20px] p-[20px] font-mono shadow-[0px_3px_16px_#2f536d1f] duration-[0.3s] ease-in-out hover:translate-y-[-10px] hover:duration-[0.4s]'>
@@ -9,16 +12,27 @@ const StyledCard = ({ children }: { children: ReactNode }) => {
     </div>
   );
 };
-const StyledCardImage = ({ cover }: { cover: string }) => {
+const StyledCardImage = ({ isbnNumber }: { isbnNumber: string }) => {
+  const size = 'L';
+  const { data, isLoading } = useGetBookCover(isbnNumber, size);
+
   return (
     <div className='relative mb-[21px] overflow-hidden rounded-[20px]'>
-      <Image
-        src={cover}
-        alt='book img'
-        width={100}
-        height={50}
-        className='w-full duration-[0.4s] group-hover:scale-[1.05] group-hover:object-cover'
-      />
+      {isLoading ? (
+        <>
+          <div className='h-[300px] w-full animate-pulse bg-gray-400 duration-[0.4s] group-hover:scale-[1.05] group-hover:object-cover'></div>
+        </>
+      ) : (
+        data && (
+          <Image
+            src={data}
+            alt='book img'
+            width={100}
+            height={50}
+            className='h-[300px] w-full duration-[0.4s] group-hover:scale-[1.05] group-hover:object-cover'
+          />
+        )
+      )}
     </div>
   );
 };
@@ -31,27 +45,43 @@ const StyledCardTitle = ({ title }: { title: string }) => {
     </div>
   );
 };
-const StyledAuthor = ({ author }: { author: string }) => {
+const StyledAuthor = ({ authors }: { authors: Author[] }) => {
+  const authorNames = authors.map((author) => author.name).join(', ');
+
   return (
     <div className='mb-[4px] flex flex-col'>
       <p className='text-lightest-slate text-sm'>Author</p>
       <span className='text-lightest-slate overflow-hidden text-ellipsis whitespace-nowrap text-sm font-bold capitalize leading-[26px]'>
-        {author}
+        {authorNames}
       </span>
     </div>
   );
 };
-export default function SmallCard({ bookData }: { bookData: BookData }) {
+
+const StyledPublishDate = ({ publishDate }: { publishDate: string }) => {
+  return (
+    <div className='mb-[16px]'>
+      <span className='text-green text-xs italic'>
+        Publish year: {publishDate}
+      </span>
+    </div>
+  );
+};
+
+export default function SmallCard({
+  bookData,
+  isbn,
+}: {
+  bookData: BookData;
+  isbn: string;
+}) {
+  const isbnNumber: string | null = isbn.split(':')[1];
   return (
     <StyledCard>
-      <StyledCardImage cover={bookData.cover.large} />
+      <StyledCardImage isbnNumber={isbnNumber} />
       <StyledCardTitle title={bookData.title} />
-      <div className='mb-[16px]'>
-        <span className='text-green text-xs italic'>
-          Publish year: {bookData.publish_date}
-        </span>
-      </div>
-      <StyledAuthor author={bookData.by_statement} />
+      <StyledPublishDate publishDate={bookData.publish_date} />
+      <StyledAuthor authors={bookData.authors} />
     </StyledCard>
   );
 }

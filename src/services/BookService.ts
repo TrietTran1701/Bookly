@@ -25,10 +25,11 @@ export const bookService = {
   },
   async getBooksCover({ isbn, size }: { isbn: string; size: string }) {
     try {
+      const queryParam = isbn + '-' + size + '.jpg';
       const response = await axios.get(
-        `${BASE_COVER_URL}/b/isbn/${isbn}-${size}.jpg}`
+        `${BASE_COVER_URL}/b/isbn/${queryParam}`
       );
-      return response.data;
+      return response.config.url;
     } catch (error) {
       throw new Error('Failed to fetch data.');
     }
