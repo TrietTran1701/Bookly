@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion';
+
 export const outer_con_variants = {
   open: {
     opacity: 1,
@@ -58,5 +60,18 @@ export const li_variants = {
     transition: {
       y: { stiffness: 1000 },
     },
+  },
+};
+
+export const itemVariants: Variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 300, damping: 24 },
+  },
+  closed: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.1 },
   },
 };

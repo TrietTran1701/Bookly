@@ -20,7 +20,6 @@ const StyledCardsContainer = ({ children }: { children: ReactNode }) => {
 };
 
 export default function SearchResult() {
-  // const { data, isLoading } = useGetAllBooks(isbns);
   const pseudoValue = `01.`;
   const router = useRouter();
   const queryString = router.asPath.split('?')[1];
@@ -33,20 +32,12 @@ export default function SearchResult() {
       >
         Search Result
       </h2>
-      {/* {isLoading && (
-        <>
-          <LoadingWithText />
-        </>
-      )} */}
       {isLoading ? (
         <>
           <LoadingWithText />
         </>
       ) : (
         <StyledCardsContainer>
-          {/* {Object.entries(booksData).map(([isbn, bookData]) => (
-            <SmallCard key={isbn} bookData={bookData} isbn={isbn} />
-          ))} */}
           {booksData.docs.map((book: SearchedBook) => (
             <>
               <ResultCard book={book} />
