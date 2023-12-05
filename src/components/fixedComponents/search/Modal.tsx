@@ -58,7 +58,7 @@ const Modal = ({ onClose, children }: ModalProps) => {
         animate='visible'
         exit='exit'
       >
-        <div className='bg-day dark:bg-night shadow-night relative mx-auto flex w-full max-w-xl rounded-lg shadow-sm md:max-w-[36rem] '>
+        <div className='bg-night shadow-night relative mx-auto flex w-full max-w-xl rounded-lg shadow-sm md:max-w-[36rem] '>
           {children}
         </div>
       </motion.div>

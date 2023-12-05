@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-import { FilterBookConfig } from '@/types/Book';
 const BASE_BOOK_URL = 'https://openlibrary.org';
 const BASE_COVER_URL = 'https://covers.openlibrary.org';
 export const bookService = {
-  async searchBooks(searchParams: FilterBookConfig) {
+  async searchBooks(searchParams: string) {
     try {
-      const response = await axios.get(`${BASE_BOOK_URL}/book?${searchParams}`);
+      const response = await axios.get(
+        `${BASE_BOOK_URL}/search.json?${searchParams}&page=1&limit=5`
+      );
       return response.data;
     } catch (error) {
       throw new Error('Failed to fetch data.');

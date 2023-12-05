@@ -73,6 +73,13 @@ export interface Books {
   [isbn: string]: BookData;
 }
 
+export interface SearchedBook {
+  title: string;
+  author_name: string[];
+  isbn: string[];
+  publish_date: string[];
+  key: string;
+}
 export interface FilterBookConfig {
   page?: number | string;
   limit?: number | string;

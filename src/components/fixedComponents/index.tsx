@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux.hook';
 
+import Search from '@/components/fixedComponents/search/Search';
+
 import { closeSearch, openSearch } from '@/store/slice/search';
 
 import Modal from './search/Modal';
-
 const FixedComponents = () => {
   const dispatch = useAppDispatch();
   const isOpenSearch =
@@ -51,7 +52,7 @@ const FixedComponents = () => {
             recommendBaseOnTag={recommendBaseOnTag}
             onClose={onClose}
           /> */}
-          Modal
+          <Search onClose={onClose} />
         </Modal>
       )}
     </div>

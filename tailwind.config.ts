@@ -21,6 +21,7 @@ export default {
         pink: 'var(--pink)',
         blue: 'var(--blue)',
         grey: 'var(--grey)',
+        night: 'var(--night)',
       },
       fontSize: {
         xxs: 'var(--fz-xxs)',
